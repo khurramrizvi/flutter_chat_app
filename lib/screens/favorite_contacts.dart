@@ -1,4 +1,5 @@
 import 'package:chat_app/models/message_model.dart';
+import 'package:chat_app/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteContacts extends StatelessWidget {
@@ -38,26 +39,36 @@ class FavoriteContacts extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: favList.length,
               itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(
-                            favList[index].imageUrl,
-                          )),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        favList[index].name,
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.blueGrey),
-                      ),
-                    ],
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(
+                            builder: (_){
+                              return ChatScreen(user: favList[index],);
+                            }
+                        ));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                            radius: 35,
+                            backgroundImage: AssetImage(
+                              favList[index].imageUrl,
+                            )),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          favList[index].name,
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.blueGrey),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

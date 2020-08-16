@@ -12,7 +12,8 @@ class ChatApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Chat App',
       theme: ThemeData(
-        primaryColor: Colors.red,
+        hintColor: Colors.indigo[200],//red color: Color(0x0ffffefee),
+        primaryColor: Colors.deepPurple,
         accentColor: Color(0xFFFEF9EB),
         hoverColor: Colors.white60,
         fontFamily: 'Questrial'
